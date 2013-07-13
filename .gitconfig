@@ -1,0 +1,12 @@
+[user]
+	name = Sean Hurley
+	email = sean.hurley6@gmail.com
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+[push]
+	default = simple

@@ -147,29 +147,4 @@ source ~/.aliases
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-function bt-tmux-start {
-tmux -S /tmp/$1 new-session -s $1 -d
-chmod 777 /tmp/$1
-tmux -S /tmp/$1 attach -t $1
-                                                                                                                                          }
-
-                                                                                                                                          function bt-tmux-join {
-                                                                                                                                          tmux -S /tmp/$1 new-session -t $1
-                                                                                                                                        }
-
-                                                                                                                                        function bt-tmux-list {
-                                                                                                                                        ps -o ruser,command -ax | grep '[n]ew-session -s' | ruby -ne '$_ =~ /^(\w+).*-s (\w+)/; puts "#{$1} started #{$2}"'
-                                                                                                                                      }
-
-                                                                                                                                      function bt-tmux-watch {
-                                                                                                                                      tmux -S /tmp/$1 attach -t $1 -r
-                                                                                                                                    }
-
-                                                                                                                                    function bt-clone {
-                                                                                                                                    cd ~/bt
-                                                                                                                                    git clone git@git.braintreeps.com:$1.git
-                                                                                                                                    cd ~/bt/$1
-                                                                                                                                  }
-
-
-                                                                                                                                  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -9,4 +9,4 @@
   df = diff
   lg = log -p
 [push]
-	default = simple
+	default = current

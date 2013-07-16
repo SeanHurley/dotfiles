@@ -8,5 +8,6 @@
   co = checkout
   df = diff
   lg = log -p
+  staged = diff --staged --color
 [push]
 	default = current

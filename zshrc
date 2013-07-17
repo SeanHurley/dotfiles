@@ -148,4 +148,3 @@ source ~/.aliases
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 PATH=$PATH:$HOME/.rvm/bin
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh

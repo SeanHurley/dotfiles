@@ -1,6 +1,10 @@
 [user]
 	name = Sean Hurley
 	email = sean.hurley6@gmail.com
+[color]
+  branch = auto
+  diff = auto
+  status = auto
 [alias]
   st = status
   ci = commit
@@ -8,6 +12,6 @@
   co = checkout
   df = diff
   lg = log -p
-  staged = diff --staged --color
+  staged = diff --staged
 [push]
 	default = current

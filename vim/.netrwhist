@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/seanhurley/.vim'
 let g:netrw_dirhist_2='/Users/seanhurley/.config'
 let g:netrw_dirhist_3='/Users/seanhurley/.config/powerline'
+let g:netrw_dirhist_4='/private/var/folders/9j/12nj4jr55b1bk02gk35839hw0000gp/T/pip-NPujnU-build'

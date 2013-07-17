@@ -26,17 +26,19 @@
 				"name": "virtualenv"
 			},
 			{
-				"name": "branch"
-			},
-			{
 				"name": "cwd",
 				"args": {
 					"dir_limit_depth": 3
 				}
+			}
+		],
+		"right": [
+			{
+				"module": "powerline.segments.shell",
+				"name": "last_pipe_status"
 			},
 			{
-				"name": "last_status",
-				"module": "powerline.segments.shell"
+				"name": "branch"
 			}
 		]
 	}

@@ -80,11 +80,6 @@ simple_git_prompt_info() {
   echo " (${user}@${ref#refs/heads/})"
 }
 
-ghe_show() {
-  repo=`git remote -v | grep fetch | grep --only-matching 'github.braintreeps.com:[a-z\/]\+' | sed 's/:/\//'`
-  echo "https://$repo/commit/$1"
-}
-
 set -o emacs
 setopt prompt_subst
 setopt HIST_IGNORE_DUPS

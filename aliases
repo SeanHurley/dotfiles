@@ -12,13 +12,14 @@ alias gt="git status"
 alias gd="git diff"
 alias gc="git commit -a"
 alias gr="git reset"
-alias dbdo="rake db:do_over"
-alias dbtp="rake db:truncate db:populate_data"
+alias dbdo="bundle exec rake db:do_over"
+alias dbtp="bundle exec rake db:truncate db:populate_data"
 
 alias bi="bundle install"
 alias be="bundle exec"
 alias boomstick="shotgun -o 0.0.0.0"
 alias fkndie="killall -KILL ruby;killall -KILL rake;killall -KILL thin;redis-cli flushall"
+alias fixtmux="pkill -SIGWINCH -f tmux"
 
 alias lasttest='$(cat /tmp/last_ruby_focused_unit_test)'
 alias debuglasttest='$(cat /tmp/last_ruby_focused_unit_test | sed "s/spec/spec --debugger/")'

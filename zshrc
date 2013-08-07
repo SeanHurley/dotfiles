@@ -136,6 +136,7 @@ _cap () {
 compdef _cap cap
 
 source ~/.aliases
+source ~/.nvm/nvm.sh
 
 [[ -s ~/.zshenv_personal ]] && source ~/.zshenv_personal
 

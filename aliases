@@ -57,10 +57,7 @@ alias revof-all="
   echo -n 'qa: '; revof-qa;
   echo -n 'qa2: '; revof-qa2;"
 
-
-alias qatunnel="ssh -C -N -p 51322 -L 55432:localhost:5432 $USER@184.73.254.47"
-alias prodmysql="mysql -h 127.0.0.1 -P 53306 -u $USER -D gateway -p"
-alias prodpsql="psql -U ${USER}_ro -h 10.10.10.43 gateway"
+alias postgres=~/Downloads/Postgres.app/Contents/MacOS/bin/psql
 
 markdown () {
   ruby -rrubygems -e "require 'redcarpet'; puts Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_block => true).render(File.read('$1'))" > /tmp/markdown.html && open /tmp/markdown.html

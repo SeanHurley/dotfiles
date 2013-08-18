@@ -20,3 +20,5 @@ command! -range=% CoffeeCompile <line1>,<line2>:w !coffee -scb
 if exists("coffee_compile_on_save")
   autocmd BufWritePost,FileWritePost *.coffee silent !coffee -c <afile> &
 endif
+
+imap <C-L> <SPACE>-><SPACE>

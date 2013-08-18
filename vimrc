@@ -231,6 +231,8 @@ function! __Edge()
   let g:VimuxHeight = "40"
 endfunction
 
+set wildignore+=node_modules/**
+
 function! __HardMode()
   nmap h <nop>
   nmap j <nop>

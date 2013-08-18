@@ -1,9 +1,9 @@
-task :default => :compile_command_t
+task :default => :activate
 
 desc 'compile Comamnd-T'
 task :compile_command_t do
   Dir.chdir(File.dirname(__FILE__) + "/vim/bundle/Command-T") do
-    sh "rake make"
+    sh "rvm system do rake make"
   end
 end
 
@@ -22,4 +22,5 @@ task :activate do
     rm_rf(sym_link) if File.symlink?(sym_link) || File.exist?(sym_link)
     ln_s filename, sym_link
   end
+  Rake::Task["compile_command_t"].execute
 end

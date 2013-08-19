@@ -232,6 +232,7 @@ function! __Edge()
 endfunction
 
 set wildignore+=node_modules/**
+command! W  write
 
 function! __HardMode()
   nmap h <nop>

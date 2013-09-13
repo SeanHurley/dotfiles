@@ -15,6 +15,7 @@ alias gr="git reset"
 alias dbdo="bundle exec rake db:do_over"
 alias db="coffee db.coffee"
 alias dbtp="bundle exec rake db:truncate db:populate_data"
+alias app="coffee app/app.coffee"
 
 alias bi="bundle install"
 alias be="bundle exec"

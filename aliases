@@ -23,8 +23,6 @@ alias boomstick="shotgun -o 0.0.0.0"
 alias fkndie="killall -KILL ruby;killall -KILL rake;killall -KILL thin;redis-cli flushall"
 alias fixtmux="pkill -SIGWINCH -f tmux"
 
-alias lasttest='$(cat /tmp/last_ruby_focused_unit_test)'
-alias debuglasttest='$(cat /tmp/last_ruby_focused_unit_test | sed "s/spec/spec --debugger/")'
 alias r3spec='RAILS3=x bundle exec rspec'
 
 alias matebash="mate ~/.bash_login"
@@ -35,9 +33,9 @@ alias mysqlstop='/opt/local/bin/mysqladmin5 -u root shutdown'
 
 alias rmate="mate Rakefile cruise_config README TODO app config doc db lib public script spec test stories features examples"
 
-alias sc="test -e script/rails && script/rails c || script/console"
-alias ss="test -e script/rails && script/rails s || script/server"
-alias ssm="test -e script/rails && bundle exec script/rails s mongrel || bundle exec script/server mongrel"
+alias sc="test -e script/rails and script/rails c or script/console"
+alias ss="test -e script/rails and script/rails s or script/server"
+alias ssm="test -e script/rails and bundle exec script/rails s mongrel or bundle exec script/server mongrel"
 alias ccss="CACHE_CLASSES=1 script/server"
 alias rc="rake_commit"
 alias sourcebash="source ~/.bash_login"
@@ -60,17 +58,5 @@ alias revof-all="
   echo -n 'qa2: '; revof-qa2;"
 
 alias postgres=~/Downloads/Postgres.app/Contents/MacOS/bin/psql
-
-markdown () {
-  ruby -rrubygems -e "require 'redcarpet'; puts Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_block => true).render(File.read('$1'))" > /tmp/markdown.html && open /tmp/markdown.html
-}
-
-pbpush () {
-  pbpaste  | ssh $1 'pbcopy'
-}
-
-alias print256colors='(x=`tput op` y=`printf %80s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)'
-
-alias top='top -o cpu'
 
 alias rpi="ssh rpi.local -l pi"

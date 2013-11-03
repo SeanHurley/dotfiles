@@ -13,12 +13,14 @@ task :activate do
   home_dir = File.expand_path("~")
   dot_files = Dir.glob(File.join(working_dir,"*"))
 
+  sym_link = File.join(home_dir, ".config", "fish")
+  rm_rf(sym_link) if File.symlink?(sym_link) || File.exist?(sym_link)
+  ln_s "#{File.expand_path("fish")}", sym_link
+
   p dot_files
   dot_files.each do |filename|
-    next if filename =~ /Rakefile/ || filename =~ /README\.txt$/
-
-      sym_link = File.join(home_dir,".#{File.basename(filename)}")
-
+    next if filename =~ /Rakefile|README.txt|fish/
+    sym_link = File.join(home_dir,".#{File.basename(filename)}")
     rm_rf(sym_link) if File.symlink?(sym_link) || File.exist?(sym_link)
     ln_s filename, sym_link
   end

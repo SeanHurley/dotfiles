@@ -137,9 +137,9 @@ map <silent> <LocalLeader>nr :NERDTree<CR>
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 
 " CommandT
-map <silent> <leader>ff :CommandT<CR>
-map <silent> <leader>fb :CommandTBuffer<CR>
-map <silent> <leader>fr :CommandTFlush<CR>
+map <silent> <leader>ff :CtrlP<CR>
+" map <silent> <leader>fb :CommandTBuffer<CR>
+" map <silent> <leader>fr :CommandTFlush<CR>
 
 " Ack
 map <LocalLeader>aw :Ack '<C-R><C-W>'
@@ -240,3 +240,5 @@ function! __HardMode()
   nmap k <nop>
   nmap l <nop>
 endfunction
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim

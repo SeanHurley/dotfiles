@@ -2,9 +2,7 @@
 
 set nocompatible
 
-if &shell == "/usr/bin/sudosh"
-  set shell=/bin/bash
-endif
+set shell=/bin/bash
 
 filetype off
 call pathogen#runtime_append_all_bundles()

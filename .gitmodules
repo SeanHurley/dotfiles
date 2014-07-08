@@ -1,3 +1,6 @@
 [submodule "nvm"]
 	path = nvm
 	url = https://github.com/creationix/nvm.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim

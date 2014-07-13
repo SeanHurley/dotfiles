@@ -24,5 +24,10 @@ task :activate do
     rm_rf(sym_link) if File.symlink?(sym_link) || File.exist?(sym_link)
     ln_s filename, sym_link
   end
-  # Rake::Task["compile_command_t"].execute
+  Rake::Task["update_vim"].execute
+end
+
+desc 'updates vim plugins'
+task :update_vim do
+  sh "vim +PluginInstall +qall"
 end

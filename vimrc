@@ -136,6 +136,7 @@ map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 
 " CommandT
 map <silent> <leader>ff :CtrlP<CR>
+map <silent> <leader>fr :CtrlPClearCache<CR>
 " map <silent> <leader>fb :CommandTBuffer<CR>
 " map <silent> <leader>fr :CommandTFlush<CR>
 

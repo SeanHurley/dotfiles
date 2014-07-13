@@ -1,3 +1,3 @@
 dotfiles
 ========
-Primarily based off of https://github.com/braintreeps/vim_dotfiles with some extra stuff.
+My dotfiles for vim and fish and whatever else I use.

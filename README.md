@@ -1,3 +1,3 @@
 dotfiles
 ========
-My dotfiles for vim and fish and whatever else I use.
+My dotfiles for vim and zsh and whatever else I use.

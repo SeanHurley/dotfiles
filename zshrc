@@ -83,7 +83,9 @@ simple_git_prompt_info() {
 set -o emacs
 setopt prompt_subst
 setopt HIST_IGNORE_DUPS
-export HISTSIZE=200
+setopt APPEND_HISTORY
+
+export HISTSIZE=20000
 
 export LOCALE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -111,6 +113,8 @@ export PATH="$PATH:$SYSTEM_SCRIPTS/bin"
 export PATH="$PATH:$EC2_HOME/bin:$EC2_AMI_HOME/bin"
 export PATH="$PATH:/usr/local/Cellar/python/2.7.2/bin"
 export PATH="$PATH:/Applications/wkhtmltopdf.app/Contents/MacOS"
+
+export TERM=xterm-256color
 
 autoload edit-command-line
 zle -N edit-command-line
@@ -144,3 +148,6 @@ source ~/.nvm/nvm.sh
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 PATH=$PATH:$HOME/.rvm/bin
+
+autoload predict-on
+predict-on

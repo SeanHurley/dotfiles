@@ -37,6 +37,7 @@ Plugin 'jgdavey/vim-turbux'
 Plugin 'vim-scripts/VimClojure'
 Plugin 'benmills/vimux'
 Plugin 'pgr0ss/vimux-ruby-test'
+Bundle 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 filetype plugin indent on

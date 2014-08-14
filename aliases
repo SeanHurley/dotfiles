@@ -64,3 +64,9 @@ alias postgres="/Applications/Postgres.app/Contents/Versions/9.3/bin/psql -p5432
 
 alias rpi="ssh rpi.local -l pi"
 alias howto="man"
+
+# Shortcuts for work
+alias warp="ssh warp1"
+alias qa="ssh support01.qa"
+alias chi="ssh support01.chi"
+alias stq="ssh support01.stq"

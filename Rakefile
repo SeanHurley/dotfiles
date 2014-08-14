@@ -30,6 +30,6 @@ task :update_vim do
 end
 
 desc 'install global gems'
-task :update_vim do
+task :install_gems do
   sh "bundle install --system"
 end

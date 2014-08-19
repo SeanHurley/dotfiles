@@ -163,4 +163,5 @@ source ~/.nvm/nvm.sh
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 PATH=$PATH:$HOME/.rvm/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
 bindkey '^R' history-incremental-search-backward

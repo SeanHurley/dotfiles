@@ -164,4 +164,5 @@ source ~/.nvm/nvm.sh
 
 PATH=$PATH:$HOME/.rvm/bin
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
 bindkey '^R' history-incremental-search-backward

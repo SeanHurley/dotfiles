@@ -4,7 +4,7 @@ set nocompatible
 
 set shell=/bin/bash
 
-filetype off
+filetype plugin on
 filetype plugin indent on
 
 set rtp+=~/.vim/bundle/vundle
@@ -38,6 +38,9 @@ Plugin 'vim-scripts/VimClojure'
 Plugin 'benmills/vimux'
 Plugin 'pgr0ss/vimux-ruby-test'
 Bundle 'ekalinin/Dockerfile.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'bitc/vim-hdevtools'
+Plugin 'kana/vim-filetype-haskell'
 
 call vundle#end()
 filetype plugin indent on
@@ -210,7 +213,8 @@ map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 " ========= Insert Shortcuts ========
 
-imap <C-L> <SPACE>=><SPACE>
+autocmd BufNewFile,BufRead *.hs imap <C-L> <SPACE>-><SPACE>
+autocmd BufNewFile,BufRead *.rb imap <C-L> <SPACE>=><SPACE>
 
 " ========= Functions ========
 
@@ -274,3 +278,7 @@ function! __HardMode()
 endfunction
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsInfo<CR>

@@ -159,11 +159,9 @@ source ~/.nvm/nvm.sh
 
 [[ -s ~/.zshenv_personal ]] && source ~/.zshenv_personal
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-PATH=$PATH:$HOME/.rvm/bin
+eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 bindkey '^R' history-incremental-search-backward
-eval "$(rbenv init -)"

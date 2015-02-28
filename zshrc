@@ -109,7 +109,6 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export PROMPT='%{$fg_no_bold[green]%}%m:%{$fg_no_bold[blue]%}%~%{$fg_no_bold[green]%}$(git_prompt_info)%{$reset_color%}%# '
 
-export GREP_OPTIONS='--color'
 export EDITOR=vim
 
 if [[ `uname` == 'Linux' ]]; then

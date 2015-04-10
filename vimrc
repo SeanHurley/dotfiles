@@ -25,6 +25,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-bundler'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
 Plugin 'uarun/vim-protobuf'
@@ -41,6 +42,7 @@ Bundle 'ekalinin/Dockerfile.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bitc/vim-hdevtools'
 Plugin 'kana/vim-filetype-haskell'
+Plugin 'Keithbsmiley/rspec.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -91,6 +93,7 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
+autocmd BufNewFile,BufRead *_spec.rb set syntax=rspec
 
 autocmd FileType ruby runtime ruby_mappings.vim
 

@@ -4,8 +4,8 @@ set nocompatible
 
 set shell=/bin/bash
 
-filetype plugin on
-filetype plugin indent on
+filetype plugin off
+filetype plugin indent off
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
@@ -43,9 +43,13 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bitc/vim-hdevtools'
 Plugin 'kana/vim-filetype-haskell'
 Plugin 'Keithbsmiley/rspec.vim'
+Plugin 'bling/vim-airline'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'SeanHurley/vim-railscasts-theme'
 
 call vundle#end()
 filetype plugin indent on
+filetype plugin on
 
 " ========= Options ========
 
@@ -55,7 +59,6 @@ set hlsearch
 set number
 set showmatch
 set incsearch
-set background=dark
 set hidden
 set backspace=indent,eol,start
 set textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -75,11 +78,11 @@ endif
 set undolevels=1000 "maximum number of changes that can be undone
 
 " Color
-colorscheme vibrantink
+colorscheme railscasts
 
 au FileType diff colorscheme desert
 au FileType git colorscheme desert
-au BufWinLeave * colorscheme vibrantink
+au BufWinLeave * colorscheme railscasts
 
 augroup markdown
   au!
@@ -250,25 +253,6 @@ function! Trim()
 endfunction
 command! -nargs=0 Trim :call Trim()
 nnoremap <silent> <Leader>cw :Trim<CR>
-
-function! StartInferiorSlimeServer()
-  let g:__InferiorSlimeRunning = 1
-  call VimuxRunCommand("inferior-slime")
-endfunction
-command! -nargs=0 StartInferiorSlimeServer :call StartInferiorSlimeServer()
-
-function! __Edge()
-  colorscheme Tomorrow-Night
-  au BufWinLeave * colorscheme Tomorrow-Night
-
-  set ttyfast
-
-  map <leader>nf :e%:h<CR>
-  map <C-p> :CommandT<CR>
-
-  let g:VimuxOrientation = "h"
-  let g:VimuxHeight = "40"
-endfunction
 
 set wildignore+=node_modules/**
 command! W  write

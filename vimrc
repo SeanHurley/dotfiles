@@ -45,7 +45,7 @@ Plugin 'kana/vim-filetype-haskell'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'SeanHurley/vim-railscasts-theme'
+Plugin 'justincampbell/vim-railscasts'
 
 call vundle#end()
 filetype plugin indent on

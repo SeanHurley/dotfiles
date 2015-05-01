@@ -82,7 +82,6 @@ colorscheme railscasts
 
 au FileType diff colorscheme desert
 au FileType git colorscheme desert
-au BufWinLeave * colorscheme railscasts
 
 augroup markdown
   au!

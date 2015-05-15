@@ -127,6 +127,7 @@ export PATH="$PATH:$SYSTEM_SCRIPTS/bin"
 export PATH="$PATH:$EC2_HOME/bin:$EC2_AMI_HOME/bin"
 export PATH="$PATH:/usr/local/Cellar/python/2.7.2/bin"
 export PATH="$PATH:/Applications/wkhtmltopdf.app/Contents/MacOS"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
 export TERM=xterm-256color
 

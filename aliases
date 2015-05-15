@@ -59,7 +59,6 @@ alias revof-all="
   echo -n 'qa: '; revof-qa;
   echo -n 'qa2: '; revof-qa2;"
 
-alias postgres="/Applications/Postgres.app/Contents/Versions/9.3/bin/psql -p5432"
 #alias vim="/usr/local/bin/vim"
 
 alias rpi="ssh rpi.local -l pi"

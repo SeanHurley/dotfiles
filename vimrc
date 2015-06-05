@@ -68,7 +68,7 @@ set dir=/tmp//
 set scrolloff=5
 set ignorecase
 set smartcase
-set wildignore+=*.pyc,*.o,*.class,*.lo,.git,vendor/*
+set wildignore+=*.pyc,*.o,*.class,*.lo,.git,vendor/*,node_modules/**
 
 if version >= 703
   set undodir=~/.vim/undodir
@@ -254,17 +254,11 @@ endfunction
 command! -nargs=0 Trim :call Trim()
 nnoremap <silent> <Leader>cw :Trim<CR>
 
-set wildignore+=node_modules/**
 command! W  write
 
-function! __HardMode()
-  nmap h <nop>
-  nmap j <nop>
-  nmap k <nop>
-  nmap l <nop>
-endfunction
-
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\git\|dist'
 
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>

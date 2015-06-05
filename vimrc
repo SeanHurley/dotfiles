@@ -46,6 +46,7 @@ Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'justincampbell/vim-railscasts'
+Plugin 'vim-scripts/gitignore'
 
 call vundle#end()
 filetype plugin indent on
@@ -211,6 +212,17 @@ map <silent> <LocalLeader>bd :bufdo :bd<CR>
 
 cnoremap <Tab> <C-L><C-D>
 
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
 nnoremap <silent> k gk
 nnoremap <silent> j gj
 nnoremap <silent> Y y$
@@ -263,3 +275,15 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\git\|dist'
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsInfo<CR>
+
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif

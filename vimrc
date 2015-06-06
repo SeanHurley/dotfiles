@@ -270,7 +270,7 @@ command! W  write
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-let g:ctrlp_custom_ignore = 'node_modules\|bower_components\git\|dist'
+let g:ctrlp_custom_ignore = 'bower_components\|_build\|deps\|node_modules\|DS_Store\|git'
 
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>

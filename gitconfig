@@ -12,6 +12,7 @@
   co = checkout
   df = diff
   lg = log -p
+  oops = ci --amend --no-edit
   staged = diff --staged
 [push]
 	default = current

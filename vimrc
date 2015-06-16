@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-scripts/Align'
 Plugin 'bkad/CamelCaseMotion'
@@ -47,6 +47,7 @@ Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'justincampbell/vim-railscasts'
 Plugin 'vim-scripts/gitignore'
+Plugin 'elzr/vim-json'
 
 call vundle#end()
 filetype plugin indent on

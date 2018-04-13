@@ -234,6 +234,7 @@ map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 autocmd BufNewFile,BufRead *.hs imap <C-L> <SPACE>-><SPACE>
 autocmd BufNewFile,BufRead *.rb imap <C-L> <SPACE>=><SPACE>
+autocmd BufNewFile,BufRead *.ex,*.exs imap <C-L> <SPACE>=><SPACE>
 
 " ========= Functions ========
 
@@ -271,7 +272,7 @@ command! W  write
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-let g:ctrlp_custom_ignore = 'bower_components\|_build\|deps\|node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'bower_components\|_build\|deps\|.*node_modules.*\|DS_Store\|git'
 
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
@@ -288,3 +289,8 @@ else
     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
     \ }
 endif
+
+set hidden
+
+" let g:syntastic_elixir_checkers = ['elixir']
+" let g:syntastic_enable_elixir_checker = 1

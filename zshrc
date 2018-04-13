@@ -165,3 +165,7 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 bindkey '^R' history-incremental-search-backward
+
+function replace () {
+  grep -R -l $1 ${3-.} | xargs -e sed -i "s/$1/$2/g"
+}

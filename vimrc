@@ -7,11 +7,11 @@ set shell=/bin/bash
 filetype plugin off
 filetype plugin indent off
 
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jlanzarotta/bufexplorer'
@@ -136,9 +136,6 @@ set statusline+=%P                        " percentage of file
 
 " ========= Plugin Options ========
 
-let g:AckAllFiles = 0
-let g:AckCmd = 'ack --type-add ruby=.feature --ignore-dir=tmp 2> /dev/null'
-
 let html_use_css=1
 let html_number_lines=0
 let html_no_pre=1
@@ -181,11 +178,6 @@ map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 map <silent> <leader>ff :CtrlP<CR>
 map <silent> <leader>fb :CtrlPBuffer<CR>
 map <silent> <leader>fr :CtrlPClearCache<CR>
-" map <silent> <leader>fb :CommandTBuffer<CR>
-" map <silent> <leader>fr :CommandTFlush<CR>
-
-" Ack
-map <LocalLeader>aw :Ack '<C-R><C-W>'
 
 " TComment
 map <silent> <LocalLeader>cc :TComment<CR>

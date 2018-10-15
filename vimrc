@@ -48,6 +48,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'justincampbell/vim-railscasts'
 Plugin 'vim-scripts/gitignore'
 Plugin 'elzr/vim-json'
+Plugin 'slim-template/vim-slim.git'
 
 call vundle#end()
 filetype plugin indent on

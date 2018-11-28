@@ -7,50 +7,51 @@ set shell=/bin/bash
 filetype plugin off
 filetype plugin indent off
 
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'vim-scripts/Align'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tmhedberg/matchit'
-Plugin 'rodjek/vim-puppet'
-Plugin 'vim-scripts/tComment'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-bundler'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'pangloss/vim-javascript'
-Plugin 'uarun/vim-protobuf'
-Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-surround'
-Plugin 'jgdavey/vim-turbux'
-Plugin 'vim-scripts/VimClojure'
-Plugin 'benmills/vimux'
-Plugin 'pgr0ss/vimux-ruby-test'
-Bundle 'ekalinin/Dockerfile.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bitc/vim-hdevtools'
-Plugin 'kana/vim-filetype-haskell'
-Plugin 'Keithbsmiley/rspec.vim'
-Plugin 'bling/vim-airline'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'justincampbell/vim-railscasts'
-Plugin 'vim-scripts/gitignore'
-Plugin 'elzr/vim-json'
-Plugin 'slim-template/vim-slim.git'
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'vim-scripts/Align'
+Plug 'bkad/CamelCaseMotion'
+Plug 'plasticboy/vim-markdown'
+Plug 'tmhedberg/matchit'
+Plug 'rodjek/vim-puppet'
+Plug 'vim-scripts/tComment'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-bundler'
+Plug 'digitaltoad/vim-jade'
+Plug 'pangloss/vim-javascript'
+Plug 'uarun/vim-protobuf'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-surround'
+Plug 'jgdavey/vim-turbux'
+Plug 'vim-scripts/VimClojure'
+Plug 'benmills/vimux'
+Plug 'pgr0ss/vimux-ruby-test'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'scrooloose/syntastic'
+Plug 'bitc/vim-hdevtools'
+Plug 'kana/vim-filetype-haskell'
+Plug 'Keithbsmiley/rspec.vim'
+Plug 'bling/vim-airline'
+Plug 'elixir-lang/vim-elixir'
+Plug 'justincampbell/vim-railscasts'
+Plug 'vim-scripts/gitignore'
+Plug 'elzr/vim-json'
+Plug 'slim-template/vim-slim.git'
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
 filetype plugin on
 
@@ -176,9 +177,8 @@ map <silent> <LocalLeader>nr :NERDTree<CR>
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 
 " CommandT
-map <silent> <leader>ff :CtrlP<CR>
-map <silent> <leader>fb :CtrlPBuffer<CR>
-map <silent> <leader>fr :CtrlPClearCache<CR>
+map <silent> <leader>ff :Files<CR>
+map <silent> <leader>fb :Buffers<CR>
 
 " TComment
 map <silent> <LocalLeader>cc :TComment<CR>
@@ -263,25 +263,9 @@ nnoremap <silent> <Leader>cw :Trim<CR>
 
 command! W  write
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-let g:ctrlp_custom_ignore = 'bower_components\|_build\|deps\|.*node_modules.*\|DS_Store\|git'
-
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsInfo<CR>
-
-let g:ctrlp_use_caching = 0
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
 
 set hidden
 

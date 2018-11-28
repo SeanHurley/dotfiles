@@ -12,8 +12,9 @@
   co = checkout
   df = diff
   lg = log -p
-  oops = ci --amend --no-edit
+  oops = commit --amend --no-edit
   staged = diff --staged
+  aa = add .
 [push]
 	default = current
 [core]

@@ -169,3 +169,5 @@ bindkey '^R' history-incremental-search-backward
 function replace () {
   grep -R -l $1 ${3-.} | xargs -e sed -i "s/$1/$2/g"
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

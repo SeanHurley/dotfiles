@@ -17,6 +17,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/Align'
 Plug 'bkad/CamelCaseMotion'
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'tmhedberg/matchit'
 Plug 'rodjek/vim-puppet'
@@ -49,6 +50,7 @@ Plug 'justincampbell/vim-railscasts'
 Plug 'vim-scripts/gitignore'
 Plug 'elzr/vim-json'
 Plug 'slim-template/vim-slim.git'
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 

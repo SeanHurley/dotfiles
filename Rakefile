@@ -26,7 +26,7 @@ end
 
 desc 'updates vim plugins'
 task :update_vim do
-  sh "vim +PlugInstall +qall"
+  sh "vim +PlugUpdate +qall"
 end
 
 desc 'install global gems'

@@ -89,10 +89,7 @@ colorscheme railscasts
 au FileType diff colorscheme desert
 au FileType git colorscheme desert
 
-augroup markdown
-  au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " File Types
 

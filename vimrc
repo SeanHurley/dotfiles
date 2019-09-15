@@ -49,8 +49,9 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'justincampbell/vim-railscasts'
 Plug 'vim-scripts/gitignore'
 Plug 'elzr/vim-json'
-Plug 'slim-template/vim-slim.git'
+Plug 'slim-template/vim-slim'
 Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -99,6 +100,9 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
 autocmd BufNewFile,BufRead *_spec.rb set syntax=rspec
+
+autocmd BufNewFile,BufRead *.slim set filetype=slim
+autocmd BufNewFile,BufRead *.slim set ft=slim
 
 autocmd FileType ruby runtime ruby_mappings.vim
 
@@ -227,6 +231,8 @@ map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 autocmd BufNewFile,BufRead *.hs imap <C-L> <SPACE>-><SPACE>
 autocmd BufNewFile,BufRead *.rb imap <C-L> <SPACE>=><SPACE>
 autocmd BufNewFile,BufRead *.ex,*.exs imap <C-L> <SPACE>=><SPACE>
+
+imap jj <Esc>
 
 " ========= Functions ========
 

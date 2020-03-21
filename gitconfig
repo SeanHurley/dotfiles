@@ -1,5 +1,5 @@
 [user]
-	name = hurley
+	name = Sean Hurley
 	email = sean.hurley6@gmail.com
 [color]
   branch = auto
@@ -15,7 +15,14 @@
   oops = commit --amend --no-edit
   staged = diff --staged
   aa = add .
+  bd = branch -D
+  bc = co -b
+  pfl = push --force-with-lease
 [push]
 	default = current
 [core]
 	editor = /usr/bin/vim
+[url "https://github.com"]
+	insteadOf = git://github.com
+[init]
+	templatedir = ~/.git_template

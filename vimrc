@@ -1,5 +1,4 @@
 " ========= Setup ========
-
 set nocompatible
 
 set shell=/bin/bash
@@ -11,40 +10,33 @@ filetype plugin indent off
 call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'vim-scripts/Align'
 Plug 'bkad/CamelCaseMotion'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'tmhedberg/matchit'
-Plug 'rodjek/vim-puppet'
-Plug 'vim-scripts/tComment'
+Plug 'adelarsq/vim-matchit'
+Plug 'vim-scripts/tcomment'
 Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-bundler'
-Plug 'digitaltoad/vim-jade'
-Plug 'pangloss/vim-javascript'
-Plug 'uarun/vim-protobuf'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
+Plug 'pangloss/vim-javascript'
+Plug 'uarun/vim-protobuf'
+Plug 'vim-ruby/vim-ruby'
+Plug 'janko/vim-test'
 Plug 'jgdavey/vim-turbux'
-Plug 'vim-scripts/VimClojure'
-Plug 'benmills/vimux'
-Plug 'pgr0ss/vimux-ruby-test'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'scrooloose/syntastic'
-Plug 'bitc/vim-hdevtools'
-Plug 'kana/vim-filetype-haskell'
-Plug 'Keithbsmiley/rspec.vim'
-Plug 'bling/vim-airline'
+Plug 'tpope/vim-dispatch'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'elixir-lang/vim-elixir'
 Plug 'justincampbell/vim-railscasts'
 Plug 'vim-scripts/gitignore'
@@ -52,8 +44,32 @@ Plug 'elzr/vim-json'
 Plug 'slim-template/vim-slim'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
+
+set guicursor=
+let g:ale_elixir_elixir_ls_release = '/Users/hurley/workspace/elixir-ls/release'
+let g:ale_linters_explicit = 1
+let test#ruby#use_spring_binstub = 1
+set equalalways
+
+" vim-rspec mappings
+
+:tnoremap jj <C-\><C-n>
+map <Leader>rb :wa<CR> :TestFile<CR>
+map <Leader>rf :wa<CR> :TestNearest<CR>
+map <Leader>rl :wa<CR> :TestLast<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+let g:ale_linters = {
+\   'elixir': ['elixir-ls'],
+\   'ruby': ['rubocop'],
+\}
 
 filetype plugin indent on
 filetype plugin on
@@ -67,6 +83,7 @@ set number
 set showmatch
 set incsearch
 set hidden
+set updatetime=300
 set backspace=indent,eol,start
 set textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set ruler
@@ -76,6 +93,8 @@ set scrolloff=5
 set ignorecase
 set smartcase
 set wildignore+=*.pyc,*.o,*.class,*.lo,.git,vendor/*,node_modules/**
+
+let g:vim_markdown_new_list_item_indent = 0
 
 if version >= 703
   set undodir=~/.vim/undodir
@@ -87,8 +106,8 @@ set undolevels=1000 "maximum number of changes that can be undone
 " Color
 colorscheme railscasts
 
-au FileType diff colorscheme desert
-au FileType git colorscheme desert
+" au FileType diff colorscheme desert
+" au FileType git colorscheme desert
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
@@ -99,7 +118,6 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
-autocmd BufNewFile,BufRead *_spec.rb set syntax=rspec
 
 autocmd BufNewFile,BufRead *.slim set filetype=slim
 autocmd BufNewFile,BufRead *.slim set ft=slim
@@ -152,9 +170,6 @@ let vimclojure#ParenRainbow = 1
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 
-let g:rubycomplete_buffer_loading = 1
-
-
 let g:no_html_toolbar = 'yes'
 
 let coffee_no_trailing_space_error = 1
@@ -163,14 +178,6 @@ let NERDTreeIgnore=['\.pyc', '\.o', '\.class', '\.lo']
 let NERDTreeHijackNetrw = 0
 
 let g:netrw_banner = 0
-
-let g:VimuxUseNearestPane = 1
-
-let g:CommandTMaxHeight = 15
-let g:CommandTMatchWindowAtTop = 1
-let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
-let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
 
 " ========= Shortcuts ========
 
@@ -187,70 +194,23 @@ map <silent> <leader>fb :Buffers<CR>
 map <silent> <LocalLeader>cc :TComment<CR>
 map <silent> <LocalLeader>uc :TComment<CR>
 
-" Vimux
-map <silent> <LocalLeader>rl :wa<CR> :VimuxRunLastCommand<CR>
-map <silent> <LocalLeader>vi :wa<CR> :VimuxInspectRunner<CR>
-map <silent> <LocalLeader>vk :wa<CR> :VimuxInterruptRunner<CR>
-map <silent> <LocalLeader>vx :wa<CR> :VimuxClosePanes<CR>
-map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
-vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
-nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
+map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f --extra=+q --langmap=Lisp:+.clj<CR>
+autocmd BufNewFile,BufRead *.rb map <silent> <LocalLeader>rt :!ripper-tags -R --exclude=vendor<CR>
 
-map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f --langmap=Lisp:+.clj<CR>
 
-map <silent> <LocalLeader>cj :!clj %<CR>
-
-map <silent> <LocalLeader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
-map <silent> <LocalLeader>pd :e product_diff.diff<CR>:%!svn diff<CR>:setlocal buftype=nowrite<CR>
-
-map <silent> <LocalLeader>nh :nohls<CR>
-
-map <silent> <LocalLeader>bd :bufdo :bd<CR>
-
-cnoremap <Tab> <C-L><C-D>
-
-" vp doesn't replace paste buffer
-function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
-endfunction
-function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>Repl()
-
-nnoremap <silent> k gk
-nnoremap <silent> j gj
-nnoremap <silent> Y y$
+" nnoremap <silent> k gk
+" nnoremap <silent> j gj
+" nnoremap <silent> Y y$
 
 map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 " ========= Insert Shortcuts ========
 
-autocmd BufNewFile,BufRead *.hs imap <C-L> <SPACE>-><SPACE>
-autocmd BufNewFile,BufRead *.rb imap <C-L> <SPACE>=><SPACE>
-autocmd BufNewFile,BufRead *.ex,*.exs imap <C-L> <SPACE>=><SPACE>
+autocmd BufNewFile,BufRead * imap <C-L> <SPACE>=><SPACE>
 
 imap jj <Esc>
 
 " ========= Functions ========
-
-command SudoW w !sudo tee %
-
-" http://techspeak.plainlystated.com/2009/08/vim-tohtml-customization.html
-function! DivHtml(line1, line2)
-  exec a:line1.','.a:line2.'TOhtml'
-  %g/<style/normal $dgg
-  %s/<\/style>\n<\/head>\n//
-  %s/body {/.vim_block {/
-  %s/<body\(.*\)>\n/<div class="vim_block"\1>/
-  %s/<\/body>\n<\/html>/<\/div>
-  "%s/\n/<br \/>\r/g
-
-  set nonu
-endfunction
-command -range=% DivHtml :call DivHtml(<line1>,<line2>)
 
 function! GitGrepWord()
   cgetexpr system("git grep -n '" . expand("<cword>") . "'")
@@ -268,11 +228,6 @@ nnoremap <silent> <Leader>cw :Trim<CR>
 
 command! W  write
 
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F4> :HdevtoolsInfo<CR>
+set tags^=./.git/tags;
 
 set hidden
-
-" let g:syntastic_elixir_checkers = ['elixir']
-" let g:syntastic_enable_elixir_checker = 1

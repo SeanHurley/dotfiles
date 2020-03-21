@@ -109,7 +109,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export PROMPT='%{$fg_no_bold[green]%}%m:%{$fg_no_bold[blue]%}%~%{$fg_no_bold[green]%}$(git_prompt_info)%{$reset_color%}%# '
 
-export EDITOR=vim
+export EDITOR=nvim
 
 if [[ `uname` == 'Linux' ]]; then
   export JAVA_HOME="/usr"
@@ -128,6 +128,7 @@ export PATH="$PATH:$EC2_HOME/bin:$EC2_AMI_HOME/bin"
 export PATH="$PATH:/usr/local/Cellar/python/2.7.2/bin"
 export PATH="$PATH:/Applications/wkhtmltopdf.app/Contents/MacOS"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
+export PATH="$PATH:./bin"
 
 export TERM=xterm-256color
 
@@ -155,7 +156,8 @@ _cap () {
 compdef _cap cap
 
 source ~/.aliases
-source ~/.nvm/nvm.sh
+source /usr/local/opt/nvm/nvm.sh
+
 
 [[ -s ~/.zshenv_personal ]] && source ~/.zshenv_personal
 
@@ -167,7 +169,7 @@ export PATH="$HOME/.cabal/bin:$PATH"
 bindkey '^R' history-incremental-search-backward
 
 function replace () {
-  grep -R -l $1 ${3-.} | xargs -e sed -i "s/$1/$2/g"
+  grep -R -l $1 ${3-.} | xargs sed -i '' "s/$1/$2/g"
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

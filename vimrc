@@ -65,10 +65,18 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> ga <Plug>(coc-codeaction)
+nmap \gf :ALEFix<CR>
 
 let g:ale_linters = {
 \   'elixir': ['elixir-ls'],
 \   'ruby': ['rubocop'],
+\   'javascriptreact': ['standard'],
+\}
+let g:ale_fixers = {
+\   'elixir': ['elixir-ls'],
+\   'ruby': ['rubocop'],
+\   'javascriptreact': ['standard'],
 \}
 
 filetype plugin indent on

@@ -30,7 +30,6 @@ Plug 'tpope/vim-surround'
 Plug 'pangloss/vim-javascript'
 Plug 'uarun/vim-protobuf'
 Plug 'vim-ruby/vim-ruby'
-Plug 'janko/vim-test'
 Plug 'jgdavey/vim-turbux'
 Plug 'tpope/vim-dispatch'
 Plug 'dense-analysis/ale'
@@ -51,15 +50,37 @@ call plug#end()
 set guicursor=
 let g:ale_elixir_elixir_ls_release = '/Users/hurley/workspace/elixir-ls/release'
 let g:ale_linters_explicit = 1
-let test#ruby#use_spring_binstub = 1
 set equalalways
 
-" vim-rspec mappings
-
 :tnoremap jj <C-\><C-n>
-map <Leader>rb :wa<CR> :TestFile<CR>
-map <Leader>rf :wa<CR> :TestNearest<CR>
-map <Leader>rl :wa<CR> :TestLast<CR>
+
+function! TestLastRuby() abort
+  if exists('g:last_command')
+    call s:run_test_command(get(g:, 'last_command'))
+  else
+    echo "No tests were run so far"
+  endif
+endfunction
+command! -nargs=0 TestLastRuby :call TestLastRuby()
+
+function! TestRuby() abort
+  echo @%
+  let cmd = "tab term bundle exec spring rspec " . @%
+  echo cmd
+  call s:run_test_command(cmd)
+endfunction
+command! -nargs=0 TestRuby :call TestRuby()
+
+function! s:run_test_command(cmd) abort
+  execute a:cmd
+  let g:last_command = a:cmd
+  nnoremap <buffer> <Enter> :q<CR>
+  redraw
+  " echo "Press <Enter> to exit test runner terminal (<Ctrl-C> first if command is still running)"
+endfunction
+
+map <Leader>rb :wa<CR> :TestRuby<CR>
+map <Leader>rl :wa<CR> :TestLastRuby<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

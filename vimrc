@@ -33,7 +33,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'jgdavey/vim-turbux'
 Plug 'tpope/vim-dispatch'
 Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'elixir-lang/vim-elixir'
@@ -41,7 +41,7 @@ Plug 'justincampbell/vim-railscasts'
 Plug 'vim-scripts/gitignore'
 Plug 'elzr/vim-json'
 Plug 'slim-template/vim-slim'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
@@ -88,6 +88,33 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> ga <Plug>(coc-codeaction)
 nmap \gf :ALEFix<CR>
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+imap <C-k> <Plug>(coc-snippets-expand)
 
 let g:ale_linters = {
 \   'elixir': ['elixir-ls'],
@@ -141,6 +168,7 @@ colorscheme railscasts
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " File Types
+autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
@@ -216,7 +244,8 @@ map <silent> <LocalLeader>nr :NERDTree<CR>
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 
 " CommandT
-map <silent> <leader>ff :Files<CR>
+let g:fzf_buffers_jump = 1
+map <silent> <leader>ff :FZF<CR>
 map <silent> <leader>fb :Buffers<CR>
 
 " TComment
@@ -225,11 +254,6 @@ map <silent> <LocalLeader>uc :TComment<CR>
 
 map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f --extra=+q --langmap=Lisp:+.clj<CR>
 autocmd BufNewFile,BufRead *.rb map <silent> <LocalLeader>rt :!ripper-tags -R --exclude=vendor<CR>
-
-
-" nnoremap <silent> k gk
-" nnoremap <silent> j gj
-" nnoremap <silent> Y y$
 
 map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 

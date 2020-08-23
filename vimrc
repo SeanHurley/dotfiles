@@ -36,7 +36,7 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 Plug 'justincampbell/vim-railscasts'
 Plug 'vim-scripts/gitignore'
 Plug 'elzr/vim-json'
@@ -48,7 +48,7 @@ Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 set guicursor=
-let g:ale_elixir_elixir_ls_release = '/Users/hurley/workspace/elixir-ls/release'
+let g:ale_elixir_elixir_ls_release = '/home/hurley/.elixir-ls/release'
 let g:ale_linters_explicit = 1
 set equalalways
 

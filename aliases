@@ -7,6 +7,7 @@ alias gs="git status"
 alias gst="git staged"
 alias dbdo="bin/rails db:environment:set RAILS_ENV=test && bin/rails db:drop RAILS_ENV=test  && bin/rails db:create RAILS_ENV=test && bin/rails db:migrate RAILS_ENV=test "
 alias tc="git diff --name-status master... | egrep -v 'fixtures/|factories' | grep spec | cut -d$'\t' -f 2 | xargs bundle exec rspec"
+alias cdw="cd ~/workspace"
 
 alias bi="bundle install"
 alias be="bundle exec"

@@ -63,6 +63,15 @@ function! TestLastRuby() abort
 endfunction
 command! -nargs=0 TestLastRuby :call TestLastRuby()
 
+function! TestCurrentLineRuby() abort
+  let line=getpos(".")[1]
+  echo line
+  let cmd = "tab term bundle exec spring rspec " . @% . ":" . line
+  echo cmd
+  call s:run_test_command(cmd)
+endfunction
+command! -nargs=0 TestCurrentLineRuby :call TestCurrentLineRuby()
+
 function! TestRuby() abort
   echo @%
   let cmd = "tab term bundle exec spring rspec " . @%
@@ -79,6 +88,7 @@ function! s:run_test_command(cmd) abort
   " echo "Press <Enter> to exit test runner terminal (<Ctrl-C> first if command is still running)"
 endfunction
 
+map <Leader>rf :wa<CR> :TestCurrentLineRuby<CR>
 map <Leader>rb :wa<CR> :TestRuby<CR>
 map <Leader>rl :wa<CR> :TestLastRuby<CR>
 
@@ -90,7 +100,6 @@ nmap <silent> ga <Plug>(coc-codeaction)
 nmap \gf :ALEFix<CR>
 
 inoremap <silent><expr> <c-space> coc#refresh()
-
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :

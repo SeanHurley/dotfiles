@@ -41,6 +41,7 @@ Plug 'justincampbell/vim-railscasts'
 Plug 'vim-scripts/gitignore'
 Plug 'elzr/vim-json'
 Plug 'slim-template/vim-slim'
+Plug 'rust-lang/rust.vim'
 " Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -51,6 +52,7 @@ set guicursor=
 let g:ale_elixir_elixir_ls_release = '/home/hurley/.elixir-ls/release'
 let g:ale_linters_explicit = 1
 set equalalways
+let g:vim_markdown_folding_disabled = 1
 
 :tnoremap jj <C-\><C-n>
 
@@ -129,6 +131,7 @@ let g:ale_linters = {
 \   'elixir': ['elixir-ls'],
 \   'ruby': ['rubocop'],
 \   'javascriptreact': ['standard'],
+\   'rust': ['rls'],
 \}
 let g:ale_fixers = {
 \   'elixir': ['elixir-ls'],
